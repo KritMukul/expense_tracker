@@ -162,8 +162,8 @@ class _NewExpense extends State<NewExpense> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  print(_titleController.text);
-                  print(_amountController.text);
+                  // print(_titleController.text);
+                  // print(_amountController.text);
                   _submitExpenseData();
                 },
                 child: const Text('Save Expense'),
