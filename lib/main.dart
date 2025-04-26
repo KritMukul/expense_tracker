@@ -6,7 +6,7 @@ var kColorScheme =
 
 var kDarkColorScheme = ColorScheme.fromSeed(
   brightness: Brightness.dark,
-  seedColor: const Color.fromARGB(255, 5, 99, 125),
+  seedColor: const Color.fromARGB(255, 46, 196, 237),
 );
 
 void main() {
@@ -24,6 +24,12 @@ void main() {
             foregroundColor: kDarkColorScheme.onPrimaryContainer,
           ),
         ),
+        textTheme: ThemeData().textTheme.copyWith(
+              titleLarge: TextStyle(
+                fontWeight: FontWeight.normal,
+                color: kDarkColorScheme.onSecondaryContainer,
+                fontSize: 14,
+              ),            ),
       ),
       theme: ThemeData().copyWith(
         colorScheme: kColorScheme,

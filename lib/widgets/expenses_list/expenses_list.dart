@@ -19,7 +19,7 @@ class ExpensesList extends StatelessWidget {
             onRemoveExpense(expenses[index]);
           },
           background: Container(
-            color: Theme.of(context).colorScheme.error.withValues(alpha: 0.75),
+            color: Theme.of(context).colorScheme.error.withAlpha(255),
             margin: EdgeInsets.symmetric(
                 horizontal: Theme.of(context).cardTheme.margin!.horizontal),
           ),

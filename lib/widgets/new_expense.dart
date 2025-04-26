@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:expenditure_app/models/expense.dart';
+import 'package:expenditure_app/main.dart';
 
 final formatter = DateFormat.yMd();
 
@@ -19,6 +20,7 @@ class _NewExpense extends State<NewExpense> {
   final _amountController = TextEditingController();
   DateTime? _selectedDate;
   Category _selectedCategory = Category.leisure;
+  
 
   void _presentDatePicker() async {
     final now = DateTime.now();
@@ -81,23 +83,26 @@ class _NewExpense extends State<NewExpense> {
 
   @override
   Widget build(BuildContext context) {
+    final textColor = MediaQuery.of(context).platformBrightness == Brightness.dark ? kDarkColorScheme.onSecondaryContainer : kColorScheme.onSecondaryContainer;
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
       child: Column(
         children: [
           TextField(
+            style: TextStyle(color: textColor),
             controller: _titleController,
             maxLength: 50,
-            decoration: const InputDecoration(
-              label: Text('Title'),
-            ),
+            decoration:
+                const InputDecoration(label: Text('Title')),
           ),
           Row(
             children: [
               Expanded(
                 child: TextField(
+                  style: TextStyle(color: textColor),
                   controller: _amountController,
                   decoration: const InputDecoration(
+                    
                     prefixText: '₹ ',
                     label: Text('Amount'),
                   ),
@@ -113,7 +118,7 @@ class _NewExpense extends State<NewExpense> {
                   children: [
                     Text(_selectedDate == null
                         ? 'No date selected'
-                        : formatter.format(_selectedDate!)),
+                        : formatter.format(_selectedDate!), style: TextStyle(color: textColor),),
                     IconButton(
                       onPressed: _presentDatePicker,
                       icon: const Icon(
@@ -132,6 +137,7 @@ class _NewExpense extends State<NewExpense> {
             children: [
               DropdownButton(
                 value: _selectedCategory,
+                style: TextStyle(color: textColor),
                 items: Category.values
                     .map(
                       (category) => DropdownMenuItem(
